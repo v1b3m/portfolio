@@ -10,3 +10,16 @@ body {
     color-scheme: dark;
   }
 }
+
+/* Add these styles for better cursor interaction */
+a,
+button,
+[role="button"] {
+  @apply cursor-none;
+}
+
+a:hover,
+button:hover,
+[role="button"]:hover {
+  @apply cursor-none;
+}

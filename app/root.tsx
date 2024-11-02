@@ -9,6 +9,7 @@ import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 import FloatingNav from "~/components/FloatingNav";
+import MagnifyingCursor from "~/components/MagnifyingCursor";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -32,7 +33,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+      <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none">
+        <MagnifyingCursor />
         <FloatingNav />
         <main className="pt-16">{children}</main>
         <ScrollRestoration />
