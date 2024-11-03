@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Skill = {
   name: string;
@@ -73,6 +73,11 @@ const skills: Skill[] = [
 
 export default function Skills() {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(skills[0]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile("ontouchstart" in window);
+  }, []);
 
   return (
     <div className="min-h-screen py-24">
@@ -86,7 +91,7 @@ export default function Skills() {
             My <span className="text-blue-500">Skills</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            Explore my technical expertise and experience
+            {isMobile ? "Tap" : "Hover over"} a skill to explore details
           </p>
         </motion.div>
 
@@ -96,13 +101,15 @@ export default function Skills() {
             {skills.map((skill) => (
               <motion.div
                 key={skill.name}
-                onHoverStart={() => setSelectedSkill(skill)}
-                className={`cursor-none rounded-lg p-4 transition-colors ${
+                onClick={() => setSelectedSkill(skill)}
+                onHoverStart={() => !isMobile && setSelectedSkill(skill)}
+                className={`rounded-lg p-4 transition-colors ${
                   selectedSkill?.name === skill.name
                     ? "bg-blue-500 text-white"
                     : "hover:bg-blue-50 dark:hover:bg-gray-800"
-                }`}
+                } ${isMobile ? "cursor-pointer" : "cursor-none"}`}
                 whileHover={{ x: 10 }}
+                whileTap={isMobile ? { scale: 0.98 } : undefined}
                 data-explorable="true"
               >
                 <div className="flex items-center gap-3">
@@ -113,7 +120,7 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Skill Details - Paper effect without fixed height */}
+          {/* Skill Details */}
           <div className="relative">
             <div className="rounded-2xl bg-white dark:bg-gray-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-gray-50 before:to-transparent before:opacity-50 dark:before:from-gray-700/50">
               <AnimatePresence mode="wait">
@@ -183,7 +190,9 @@ export default function Skills() {
                     animate={{ opacity: 1 }}
                     className="flex h-[300px] items-center justify-center rounded-2xl text-gray-500"
                   >
-                    <p className="text-lg">Hover over a skill to see details</p>
+                    <p className="text-lg">
+                      {isMobile ? "Tap" : "Hover over"} a skill to see details
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
