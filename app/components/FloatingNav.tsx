@@ -15,15 +15,29 @@ export default function FloatingNav() {
 
   return (
     <>
-      {/* Menu Trigger Button */}
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-8 top-8 z-50 h-12 w-12 rounded-full bg-blue-500 text-white shadow-lg"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <span className="text-xl">{isOpen ? "×" : "+"}</span>
-      </motion.button>
+      {/* Menu Trigger Button with attention ring */}
+      <div className="fixed right-8 top-8 z-50">
+        <motion.div
+          className="absolute -inset-4 rounded-full bg-blue-500/20"
+          initial={{ scale: 1 }}
+          animate={{
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative h-12 w-12 rounded-full bg-blue-500 text-white shadow-lg"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <span className="text-xl">{isOpen ? "×" : "+"}</span>
+        </motion.button>
+      </div>
 
       {/* Navigation Overlay */}
       <AnimatePresence>

@@ -79,19 +79,9 @@ export default function Index() {
           </FloatingElement>
 
           <FloatingElement delay={0.2}>
-            <p className="mb-8 text-xl text-gray-600 dark:text-gray-300">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               Fullstack Developer | Problem Solver | Tech Enthusiast
             </p>
-          </FloatingElement>
-
-          <FloatingElement delay={0.4}>
-            <motion.div
-              className="inline-block rounded-full bg-blue-500 px-8 py-3 text-white"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Click the + to explore
-            </motion.div>
           </FloatingElement>
         </div>
       </div>
