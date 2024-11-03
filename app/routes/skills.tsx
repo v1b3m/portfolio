@@ -90,8 +90,8 @@ export default function Skills() {
           <h1 className="mb-4 text-4xl font-bold">
             My <span className="text-blue-500">Skills</span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            {isMobile ? "Tap" : "Hover over"} a skill to explore details
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            Crafting digital experiences with modern technologies
           </p>
         </motion.div>
 
