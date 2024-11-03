@@ -93,13 +93,17 @@ const TypewriterText = () => {
   );
 };
 
+const isApple =
+  typeof navigator !== "undefined" &&
+  /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+
 const shortcuts = [
-  { keys: ["⌘", "h"], action: "home" },
-  { keys: ["⌘", "p"], action: "projects" },
-  { keys: ["⌘", "s"], action: "skills" },
-  { keys: ["⌘", "k"], action: "contact" },
+  { keys: [isApple ? "⌘" : "Ctrl", "1"], action: "home" },
+  { keys: [isApple ? "⌘" : "Ctrl", "p"], action: "projects" },
+  { keys: [isApple ? "⌘" : "Ctrl", "s"], action: "skills" },
+  { keys: [isApple ? "⌘" : "Ctrl", "k"], action: "contact" },
   { keys: ["esc"], action: "close modals" },
-];
+] as const;
 
 const ShortcutHint = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
