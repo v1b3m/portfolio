@@ -90,81 +90,81 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Skill Details - Updated with paper effect */}
-          <div className="relative h-[500px]">
-            <div className="absolute inset-0 rounded-2xl bg-white dark:bg-gray-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-gray-50 before:to-transparent before:opacity-50 dark:before:from-gray-700/50" />
-
-            <AnimatePresence mode="wait">
-              {selectedSkill ? (
-                <motion.div
-                  key={selectedSkill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  className="absolute inset-0 overflow-y-auto rounded-2xl bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] dark:bg-[linear-gradient(to_right,#2a2a2a_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] p-8"
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="relative">
-                    <div className="flex items-center gap-4 text-3xl">
-                      <span>{selectedSkill.icon}</span>
-                      <h2 className="font-bold">{selectedSkill.name}</h2>
-                    </div>
-
-                    <div className="mt-6 space-y-6">
-                      <div>
-                        <h3 className="text-lg font-semibold text-blue-500">
-                          Experience
-                        </h3>
-                        <p className="mt-1 text-gray-600 dark:text-gray-300">
-                          {selectedSkill.experience}
-                        </p>
+          {/* Skill Details - Paper effect without fixed height */}
+          <div className="relative">
+            <div className="rounded-2xl bg-white dark:bg-gray-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-gray-50 before:to-transparent before:opacity-50 dark:before:from-gray-700/50">
+              <AnimatePresence mode="wait">
+                {selectedSkill ? (
+                  <motion.div
+                    key={selectedSkill.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="rounded-2xl bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] dark:bg-[linear-gradient(to_right,#2a2a2a_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] p-8"
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="relative">
+                      <div className="flex items-center gap-4 text-3xl">
+                        <span>{selectedSkill.icon}</span>
+                        <h2 className="font-bold">{selectedSkill.name}</h2>
                       </div>
 
-                      <div>
-                        <h3 className="text-lg font-semibold text-blue-500">
-                          Overview
-                        </h3>
-                        <p className="mt-1 text-gray-600 dark:text-gray-300">
-                          {selectedSkill.description}
-                        </p>
-                      </div>
-
-                      {selectedSkill.projects && (
+                      <div className="mt-6 space-y-6">
                         <div>
                           <h3 className="text-lg font-semibold text-blue-500">
-                            Project Highlights
+                            Experience
+                          </h3>
+                          <p className="mt-1 text-gray-600 dark:text-gray-300">
+                            {selectedSkill.experience}
+                          </p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-lg font-semibold text-blue-500">
+                            Overview
+                          </h3>
+                          <p className="mt-1 text-gray-600 dark:text-gray-300">
+                            {selectedSkill.description}
+                          </p>
+                        </div>
+
+                        {selectedSkill.projects && (
+                          <div>
+                            <h3 className="text-lg font-semibold text-blue-500">
+                              Project Highlights
+                            </h3>
+                            <ul className="mt-1 list-disc pl-5 text-gray-600 dark:text-gray-300">
+                              {selectedSkill.projects.map((project) => (
+                                <li key={project}>{project}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        <div>
+                          <h3 className="text-lg font-semibold text-blue-500">
+                            Technical Details
                           </h3>
                           <ul className="mt-1 list-disc pl-5 text-gray-600 dark:text-gray-300">
-                            {selectedSkill.projects.map((project) => (
-                              <li key={project}>{project}</li>
+                            {selectedSkill.details.map((detail) => (
+                              <li key={detail}>{detail}</li>
                             ))}
                           </ul>
                         </div>
-                      )}
-
-                      <div>
-                        <h3 className="text-lg font-semibold text-blue-500">
-                          Technical Details
-                        </h3>
-                        <ul className="mt-1 list-disc pl-5 text-gray-600 dark:text-gray-300">
-                          {selectedSkill.details.map((detail) => (
-                            <li key={detail}>{detail}</li>
-                          ))}
-                        </ul>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="absolute inset-0 flex items-center justify-center rounded-2xl text-gray-500"
-                >
-                  <p className="text-lg">Hover over a skill to see details</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="flex h-[300px] items-center justify-center rounded-2xl text-gray-500"
+                  >
+                    <p className="text-lg">Hover over a skill to see details</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
