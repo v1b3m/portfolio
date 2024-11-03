@@ -45,6 +45,29 @@ const skills: Skill[] = [
       "Authentication and authorization",
     ],
   },
+  {
+    name: "Next.js",
+    icon: "🔮",
+    description: "Modern frontend development with Next.js",
+    experience: "2+ years",
+    projects: [
+      "Built complex SPAs with Redux",
+      "Created reusable component libraries",
+      "Implemented real-time features",
+    ],
+    details: [
+      "Server-side rendering with Next.js",
+      "Static site generation",
+      "API routes",
+      "Image optimization",
+      "TypeScript support",
+      "Dynamic routing",
+      "Serverless functions",
+      "SEO-friendly",
+      "Bundling and minification",
+      "Hot reloading",
+    ],
+  },
   // Add more skills...
 ];
 
