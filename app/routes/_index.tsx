@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import type { MetaFunction } from "@remix-run/node";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useContact } from "~/context/ContactContext";
 
 export const meta: MetaFunction = () => {
@@ -93,6 +93,57 @@ const TypewriterText = () => {
   );
 };
 
+const shortcuts = [
+  { keys: ["⌘", "h"], action: "home" },
+  { keys: ["⌘", "p"], action: "projects" },
+  { keys: ["⌘", "s"], action: "skills" },
+  { keys: ["⌘", "k"], action: "contact" },
+  { keys: ["esc"], action: "close modals" },
+];
+
+const ShortcutHint = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % shortcuts.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 4 }}
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 text-sm text-gray-500 dark:text-gray-400"
+    >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="inline-flex items-center gap-1"
+        >
+          {shortcuts[currentIndex].keys.map((key, idx) => (
+            <Fragment key={idx}>
+              <kbd className="rounded border border-gray-300 bg-gray-100 px-1.5 font-mono text-xs dark:border-gray-600 dark:bg-gray-800">
+                {key}
+              </kbd>
+              {idx < shortcuts[currentIndex].keys.length - 1 && (
+                <span className="mx-0.5">+</span>
+              )}
+            </Fragment>
+          ))}
+          <span className="ml-1">{shortcuts[currentIndex].action}</span>
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 export default function Index() {
   const [innerWidth, setInnerWidth] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
@@ -152,6 +203,8 @@ export default function Index() {
           </FloatingElement>
         </div>
       </div>
+
+      <ShortcutHint />
     </div>
   );
 }
