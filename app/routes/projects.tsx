@@ -37,7 +37,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     whileHover={{ y: -5 }}
-    className="group relative overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800"
+    className="group relative flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800"
     data-explorable="true"
   >
     <div className="aspect-video overflow-hidden">
@@ -48,21 +48,23 @@ const ProjectCard = ({ project }: { project: Project }) => (
       />
     </div>
 
-    <div className="p-6">
-      <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
-      <p className="mb-4 text-gray-600 dark:text-gray-300">
-        {project.description}
-      </p>
+    <div className="flex flex-1 flex-col p-6">
+      <div className="flex-1">
+        <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+        <p className="mb-4 text-gray-600 dark:text-gray-300">
+          {project.description}
+        </p>
 
-      <div className="mb-4 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-100"
-          >
-            {tag}
-          </span>
-        ))}
+        <div className="mb-4 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-100"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className="flex gap-4">
