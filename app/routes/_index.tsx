@@ -79,7 +79,7 @@ const TypewriterText = () => {
   }, []);
 
   return (
-    <h1 className="mb-4 text-6xl font-bold">
+    <h1 className="mb-4 text-6xl font-bold text-blue-500">
       <span className="inline-block">{text}</span>
       <motion.span
         initial={{ opacity: 0 }}
