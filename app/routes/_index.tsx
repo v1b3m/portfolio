@@ -36,6 +36,63 @@ const FloatingElement = ({ children, delay = 0 }) => (
   </motion.div>
 );
 
+const TypewriterText = () => {
+  const [text, setText] = useState("");
+  const finalText = "Benja";
+  const typoText = "Denja";
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const sequence = async () => {
+        // Type "Hi, I'm "
+        for (let i = 0; i < "Hi, I'm ".length; i++) {
+          await new Promise((resolve) => setTimeout(resolve, 100));
+          setText((prev) => prev + "Hi, I'm "[i]);
+        }
+
+        // Type the typo "Denja"
+        for (let i = 0; i < typoText.length; i++) {
+          await new Promise((resolve) => setTimeout(resolve, 100));
+          setText((prev) => prev + typoText[i]);
+        }
+
+        // Pause before correction
+        await new Promise((resolve) => setTimeout(resolve, 800));
+
+        // Backspace the entire "Denja"
+        for (let i = 0; i < typoText.length; i++) {
+          await new Promise((resolve) => setTimeout(resolve, 50));
+          setText((prev) => prev.slice(0, -1));
+        }
+
+        // Type the correct name "Benja"
+        for (let i = 0; i < finalText.length; i++) {
+          await new Promise((resolve) => setTimeout(resolve, 100));
+          setText((prev) => prev + finalText[i]);
+        }
+      };
+
+      sequence();
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <h1 className="mb-4 text-6xl font-bold">
+      <span className="inline-block">{text}</span>
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ repeat: Infinity, duration: 0.7 }}
+        className="inline-block ml-1 -translate-y-1"
+      >
+        |
+      </motion.span>
+    </h1>
+  );
+};
+
 export default function Index() {
   const [innerWidth, setInnerWidth] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
@@ -74,19 +131,15 @@ export default function Index() {
       {/* Main Content */}
       <div className="flex min-h-screen items-center justify-center px-4">
         <div className="text-center">
-          <FloatingElement>
-            <h1 className="mb-4 text-6xl font-bold">
-              Hi, I'm <span className="text-blue-500">Benja</span>
-            </h1>
-          </FloatingElement>
+          <TypewriterText />
 
-          <FloatingElement delay={0.2}>
+          <FloatingElement delay={2.5}>
             <p className="text-xl text-gray-600 dark:text-gray-300">
               Fullstack Developer | Problem Solver | Tech Enthusiast
             </p>
           </FloatingElement>
 
-          <FloatingElement delay={0.4}>
+          <FloatingElement delay={3}>
             <motion.button
               onClick={() => setShowContact(true)}
               className="mt-8 rounded-full bg-blue-500 px-8 py-3 text-white"
