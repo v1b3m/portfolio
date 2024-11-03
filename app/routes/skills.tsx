@@ -99,7 +99,7 @@ export default function Skills() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="h-full"
+                  className="absolute inset-0 overflow-y-auto p-8"
                   transition={{ duration: 0.2 }}
                 >
                   <div className="flex items-center gap-4 text-3xl">
