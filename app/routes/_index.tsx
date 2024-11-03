@@ -214,6 +214,19 @@ export default function Index() {
       </div>
 
       <ShortcutHint />
+
+      <div className="absolute bottom-4 right-4 text-sm text-gray-500 dark:text-gray-400">
+        Made with <span className="text-red-500">❤</span> by{" "}
+        <a
+          href="https://github.com/v1b3m"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+          data-explorable="true"
+        >
+          v1b3m
+        </a>
+      </div>
     </div>
   );
 }
