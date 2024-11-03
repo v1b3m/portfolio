@@ -50,7 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="cursor-none bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+      <body className="bg-white text-gray-900 dark:bg-gray-900 dark:text-white md:cursor-none">
         <ContactProvider>
           <AppContent>{children}</AppContent>
         </ContactProvider>

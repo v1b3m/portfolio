@@ -4,19 +4,33 @@ import { motion } from "framer-motion";
 export default function MagnifyingCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isPointer, setIsPointer] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Check if device is likely a desktop/laptop
+    const isDesktop =
+      window.matchMedia("(min-width: 768px)").matches &&
+      !("ontouchstart" in window);
+    setShouldRender(isDesktop);
 
-      // Check if the cursor is over a clickable element
-      const target = e.target as HTMLElement;
-      setIsPointer(window.getComputedStyle(target).cursor === "pointer");
+    if (!isDesktop) return;
+
+    const updateMousePosition = (e: MouseEvent) => {
+      // Use requestAnimationFrame for smoother updates
+      requestAnimationFrame(() => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+
+        // Check if the cursor is over a clickable element
+        const target = e.target as HTMLElement;
+        setIsPointer(window.getComputedStyle(target).cursor === "pointer");
+      });
     };
 
     window.addEventListener("mousemove", updateMousePosition);
     return () => window.removeEventListener("mousemove", updateMousePosition);
   }, []);
+
+  if (!shouldRender) return null;
 
   return (
     <>
@@ -29,9 +43,9 @@ export default function MagnifyingCursor() {
         }}
         transition={{
           type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5,
+          stiffness: 750,
+          damping: 35,
+          mass: 0.2,
         }}
       />
       <motion.div
@@ -43,9 +57,9 @@ export default function MagnifyingCursor() {
         }}
         transition={{
           type: "spring",
-          stiffness: 750,
-          damping: 28,
-          mass: 0.5,
+          stiffness: 1000,
+          damping: 35,
+          mass: 0.2,
         }}
       />
     </>
