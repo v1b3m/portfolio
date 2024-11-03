@@ -40,7 +40,7 @@ const ContactInfo = () => (
     initial={{ opacity: 0, scale: 0.8 }}
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 0.8 }}
-    className="absolute left-1/2 top-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 space-y-6 rounded-2xl bg-white p-8 shadow-2xl dark:bg-gray-800 z-50"
+    className="fixed left-1/2 top-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 space-y-6 rounded-2xl bg-white p-8 shadow-2xl dark:bg-gray-800 z-50"
   >
     <motion.div
       initial={{ opacity: 0, y: 20 }}
