@@ -72,7 +72,7 @@ const skills: Skill[] = [
 ];
 
 export default function Skills() {
-  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(skills[0]);
 
   return (
     <div className="min-h-screen py-24">
@@ -86,7 +86,7 @@ export default function Skills() {
             My <span className="text-blue-500">Skills</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            Hover over a skill to learn more
+            Explore my technical expertise and experience
           </p>
         </motion.div>
 
