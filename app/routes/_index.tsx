@@ -13,7 +13,12 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-const FloatingElement = ({ children, delay = 0 }) => (
+interface FloatingElementProps {
+  children: React.ReactNode;
+  delay?: number;
+}
+
+const FloatingElement = ({ children, delay = 0 }: FloatingElementProps) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{

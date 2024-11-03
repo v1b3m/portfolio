@@ -10,10 +10,9 @@ import type { LinksFunction } from "@remix-run/node";
 import "./tailwind.css";
 import FloatingNav from "~/components/FloatingNav";
 import MagnifyingCursor from "~/components/MagnifyingCursor";
-import { ContactProvider } from "~/context/ContactContext";
+import { ContactProvider, useContact } from "~/context/ContactContext";
 import ContactInfo from "~/components/ContactInfo";
 import { AnimatePresence } from "framer-motion";
-import { useContact } from "~/context/ContactContext";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
 
 export const links: LinksFunction = () => [

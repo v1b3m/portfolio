@@ -126,7 +126,7 @@ export default function Projects() {
             My <span className="text-blue-500">Projects</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            Here are some of the projects I've worked on
+            Here are some of the projects I&apos;ve worked on
           </p>
         </motion.div>
 
