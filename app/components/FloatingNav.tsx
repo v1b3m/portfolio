@@ -62,12 +62,12 @@ export default function FloatingNav() {
             onClick={() => setIsOpen(false)}
           >
             {/* Navigation Items */}
-            <div className="fixed inset-0 flex items-center justify-center">
+            <div className="fixed inset-0 flex items-center justify-center p-4">
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
-                className="flex gap-4"
+                className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
               >
                 {navItems.map((item, index) => (
                   <motion.div
@@ -83,19 +83,25 @@ export default function FloatingNav() {
                     {item.onClick ? (
                       <button
                         onClick={() => item.onClick(setIsOpen, setShowContact)}
-                        className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white shadow-lg dark:bg-gray-800"
+                        className="flex h-20 w-20 sm:h-24 sm:w-24 flex-col items-center justify-center rounded-full bg-white shadow-lg dark:bg-gray-800"
+                        data-explorable="true"
                       >
-                        <span className="text-2xl">{item.icon}</span>
-                        <span className="mt-1 text-sm">{item.name}</span>
+                        <span className="text-xl sm:text-2xl">{item.icon}</span>
+                        <span className="mt-1 text-xs sm:text-sm">
+                          {item.name}
+                        </span>
                       </button>
                     ) : (
                       <Link
                         to={item.path}
-                        className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white shadow-lg dark:bg-gray-800"
+                        className="flex h-20 w-20 sm:h-24 sm:w-24 flex-col items-center justify-center rounded-full bg-white shadow-lg dark:bg-gray-800"
                         onClick={() => setIsOpen(false)}
+                        data-explorable="true"
                       >
-                        <span className="text-2xl">{item.icon}</span>
-                        <span className="mt-1 text-sm">{item.name}</span>
+                        <span className="text-xl sm:text-2xl">{item.icon}</span>
+                        <span className="mt-1 text-xs sm:text-sm">
+                          {item.name}
+                        </span>
                       </Link>
                     )}
                   </motion.div>
