@@ -116,7 +116,7 @@ const ShortcutHint = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % shortcuts.length);
-    }, 3000); // Change every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -126,7 +126,7 @@ const ShortcutHint = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 4 }}
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 text-sm text-gray-500 dark:text-gray-400"
+      className="fixed bottom-[2.5vh] left-4 sm:left-1/2 sm:-translate-x-1/2 text-sm text-gray-500 dark:text-gray-400"
     >
       <AnimatePresence mode="wait">
         <motion.div
