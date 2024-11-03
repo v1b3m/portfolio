@@ -28,6 +28,24 @@ const projects: Project[] = [
     link: "https://project-two.com",
     github: "https://github.com/yourusername/project-two",
   },
+  {
+    title: "Project One",
+    description:
+      "A full-stack application built with React, Node.js, and MongoDB. Features real-time updates and responsive design.",
+    tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
+    image: "https://placehold.co/600x400",
+    link: "https://project-one.com",
+    github: "https://github.com/yourusername/project-one",
+  },
+  {
+    title: "Project Two",
+    description:
+      "An e-commerce platform with advanced filtering, search, and payment integration.",
+    tags: ["Next.js", "Stripe", "Tailwind CSS", "PostgreSQL"],
+    image: "https://placehold.co/600x400",
+    link: "https://project-two.com",
+    github: "https://github.com/yourusername/project-two",
+  },
   // Add more projects as needed
 ];
 
