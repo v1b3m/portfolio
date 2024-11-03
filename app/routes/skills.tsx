@@ -95,8 +95,9 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr,2fr]">
-          {/* Skills List */}
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid lg:grid-cols-[1fr,2fr] gap-8">
+          {/* Desktop Skills List */}
           <div className="space-y-2">
             {skills.map((skill) => (
               <motion.div
@@ -107,9 +108,8 @@ export default function Skills() {
                   selectedSkill?.name === skill.name
                     ? "bg-blue-500 text-white"
                     : "hover:bg-blue-50 dark:hover:bg-gray-800"
-                } ${isMobile ? "cursor-pointer" : "cursor-none"}`}
+                } cursor-none`}
                 whileHover={{ x: 10 }}
-                whileTap={isMobile ? { scale: 0.98 } : undefined}
                 data-explorable="true"
               >
                 <div className="flex items-center gap-3">
@@ -120,7 +120,7 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Skill Details */}
+          {/* Desktop Skill Details */}
           <div className="relative">
             <div className="rounded-2xl bg-white dark:bg-gray-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-gray-50 before:to-transparent before:opacity-50 dark:before:from-gray-700/50">
               <AnimatePresence mode="wait">
@@ -198,6 +198,96 @@ export default function Skills() {
               </AnimatePresence>
             </div>
           </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden space-y-4">
+          {skills.map((skill) => (
+            <motion.div
+              key={skill.name}
+              className="overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-md"
+              initial={false}
+            >
+              <motion.button
+                onClick={() =>
+                  setSelectedSkill(
+                    selectedSkill?.name === skill.name ? null : skill
+                  )
+                }
+                className="flex w-full items-center justify-between p-4 text-left"
+                whileTap={{ scale: 0.98 }}
+                data-explorable="true"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{skill.icon}</span>
+                  <span className="text-lg font-medium">{skill.name}</span>
+                </div>
+                <motion.span
+                  animate={{
+                    rotate: selectedSkill?.name === skill.name ? 180 : 0,
+                  }}
+                  className="text-xl"
+                >
+                  ↓
+                </motion.span>
+              </motion.button>
+
+              <AnimatePresence initial={false}>
+                {selectedSkill?.name === skill.name && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="border-t border-gray-100 dark:border-gray-700 p-4 space-y-4">
+                      <div>
+                        <h3 className="font-semibold text-blue-500">
+                          Experience
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300">
+                          {skill.experience}
+                        </p>
+                      </div>
+
+                      <div>
+                        <h3 className="font-semibold text-blue-500">
+                          Overview
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300">
+                          {skill.description}
+                        </p>
+                      </div>
+
+                      {skill.projects && (
+                        <div>
+                          <h3 className="font-semibold text-blue-500">
+                            Project Highlights
+                          </h3>
+                          <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                            {skill.projects.map((project) => (
+                              <li key={project}>{project}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      <div>
+                        <h3 className="font-semibold text-blue-500">
+                          Technical Details
+                        </h3>
+                        <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                          {skill.details.map((detail) => (
+                            <li key={detail}>{detail}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
