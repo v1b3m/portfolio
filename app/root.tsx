@@ -10,6 +10,10 @@ import type { LinksFunction } from "@remix-run/node";
 import "./tailwind.css";
 import FloatingNav from "~/components/FloatingNav";
 import MagnifyingCursor from "~/components/MagnifyingCursor";
+import { ContactProvider } from "~/context/ContactContext";
+import ContactInfo from "~/components/ContactInfo";
+import { AnimatePresence } from "framer-motion";
+import { useContact } from "~/context/ContactContext";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,6 +28,19 @@ export const links: LinksFunction = () => [
   },
 ];
 
+function AppContent({ children }: { children: React.ReactNode }) {
+  const { showContact } = useContact();
+
+  return (
+    <>
+      <MagnifyingCursor />
+      <FloatingNav />
+      <main className="pt-16">{children}</main>
+      <AnimatePresence>{showContact && <ContactInfo />}</AnimatePresence>
+    </>
+  );
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -33,10 +50,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none">
-        <MagnifyingCursor />
-        <FloatingNav />
-        <main className="pt-16">{children}</main>
+      <body className="cursor-none bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+        <ContactProvider>
+          <AppContent>{children}</AppContent>
+        </ContactProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

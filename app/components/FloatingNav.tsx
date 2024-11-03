@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@remix-run/react";
+import { useContact } from "~/context/ContactContext";
 
 const navItems = [
   { name: "Home", path: "/", icon: "🏠" },
   { name: "Projects", path: "/projects", icon: "💻" },
   { name: "Skills", path: "/skills", icon: "🚀" },
-  { name: "Contact", path: "/contact", icon: "📬" },
+  {
+    name: "Contact",
+    path: "#",
+    icon: "📬",
+    onClick: (
+      setIsOpen: (open: boolean) => void,
+      setShowContact: (show: boolean) => void
+    ) => {
+      setIsOpen(false);
+      setShowContact(true);
+    },
+  },
 ];
 
 export default function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { setShowContact } = useContact();
 
   return (
     <>
@@ -67,14 +80,24 @@ export default function FloatingNav() {
                     }}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
-                    <Link
-                      to={item.path}
-                      className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white shadow-lg dark:bg-gray-800"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <span className="text-2xl">{item.icon}</span>
-                      <span className="mt-1 text-sm">{item.name}</span>
-                    </Link>
+                    {item.onClick ? (
+                      <button
+                        onClick={() => item.onClick(setIsOpen, setShowContact)}
+                        className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white shadow-lg dark:bg-gray-800"
+                      >
+                        <span className="text-2xl">{item.icon}</span>
+                        <span className="mt-1 text-sm">{item.name}</span>
+                      </button>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white shadow-lg dark:bg-gray-800"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span className="text-2xl">{item.icon}</span>
+                        <span className="mt-1 text-sm">{item.name}</span>
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
               </motion.div>
