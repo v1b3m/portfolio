@@ -23,7 +23,9 @@ const navItems = [
 
 export default function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const { setShowContact } = useContact();
+  const { setShowContact, showContact } = useContact();
+
+  if (showContact) return null;
 
   return (
     <>

@@ -1,8 +1,25 @@
 import { motion } from "framer-motion";
 import { useContact } from "~/context/ContactContext";
+import { useEffect } from "react";
 
 export default function ContactInfo() {
   const { setShowContact } = useContact();
+
+  // Add event listener for Escape key
+  useEffect(() => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShowContact(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscapeKey);
+
+    // Cleanup listener on unmount
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [setShowContact]);
 
   return (
     <>
