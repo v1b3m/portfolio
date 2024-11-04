@@ -10,7 +10,7 @@ interface SeoProps {
 export default function Seo({
   title = "Benjamin Mayanja - Fullstack Developer",
   description = "Experienced fullstack developer specializing in React, Next.js, and modern web technologies. Building scalable, user-friendly applications with a touch of humor.",
-  image = "https://portfolio-v1b3m.vercel.app/images/og-image.svg", // Add your OG image
+  image = "https://portfolio-v1b3m.vercel.app/images/2f2a32da-634b-41c8-9fd5-9cfcfad1ecd5.png", // Add your OG image
   type = "website",
 }: SeoProps) {
   const { pathname } = useLocation();
