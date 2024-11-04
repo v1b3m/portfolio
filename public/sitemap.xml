@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemx.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://v1b3m.vercel.app/</loc>
+    <loc>https://portfolio-v1b3m.vercel.app/</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://v1b3m.vercel.app/projects</loc>
+    <loc>https://portfolio-v1b3m.vercel.app/projects</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://v1b3m.vercel.app/skills</loc>
+    <loc>https://portfolio-v1b3m.vercel.app/skills</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

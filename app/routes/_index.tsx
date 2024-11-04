@@ -31,7 +31,7 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:image",
-      content: "https://v1b3m.vercel.app/images/og-image.png",
+      content: "https://portfolio-v1b3m.vercel.app/images/og-image.svg",
     },
     {
       name: "twitter:card",
@@ -48,7 +48,7 @@ export const meta: MetaFunction = () => {
     },
     {
       name: "twitter:image",
-      content: "https://v1b3m.vercel.app/images/og-image.png",
+      content: "https://portfolio-v1b3m.vercel.app/images/og-image.svg",
     },
   ];
 };
