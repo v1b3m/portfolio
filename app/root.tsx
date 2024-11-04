@@ -26,6 +26,24 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  {
+    rel: "apple-touch-icon",
+    sizes: "180x180",
+    href: "/favicon/apple-touch-icon.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "32x32",
+    href: "/favicon/favicon-32x32.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "16x16",
+    href: "/favicon/favicon-16x16.png",
+  },
+  { rel: "manifest", href: "/favicon/site.webmanifest" },
 ];
 
 function AppContent({ children }: { children: React.ReactNode }) {
