@@ -5,10 +5,50 @@ import { useContact } from "~/context/ContactContext";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Your Name - Fullstack Developer" },
+    { title: "Benjamin Mayanja - Fullstack TypeScript Developer" },
     {
       name: "description",
-      content: "Portfolio of a passionate fullstack developer",
+      content:
+        "Experienced fullstack developer specializing in TypeScript, React, and Next.js. Building scalable web applications with modern technologies and a focus on user experience.",
+    },
+    {
+      name: "keywords",
+      content:
+        "TypeScript, React, Next.js, Fullstack Developer, Software Engineer, Web Development, Benjamin Mayanja",
+    },
+    {
+      property: "og:title",
+      content: "Benjamin Mayanja - Fullstack TypeScript Developer",
+    },
+    {
+      property: "og:description",
+      content:
+        "Experienced fullstack developer specializing in TypeScript, React, and Next.js. Building scalable web applications with modern technologies and a focus on user experience.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:image",
+      content: "https://v1b3m.vercel.app/images/og-image.png",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Benjamin Mayanja - Fullstack TypeScript Developer",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Experienced fullstack developer specializing in TypeScript, React, and Next.js. Building scalable web applications with modern technologies and a focus on user experience.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://v1b3m.vercel.app/images/og-image.png",
     },
   ];
 };

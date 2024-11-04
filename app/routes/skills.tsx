@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Seo from "~/components/Seo";
+import type { MetaFunction } from "@remix-run/node";
 
 type Skill = {
   name: string;
@@ -103,6 +104,56 @@ const skills: Skill[] = [
     ],
   },
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Skills - Benjamin Mayanja" },
+    {
+      name: "description",
+      content:
+        "Discover my technical expertise in TypeScript, React, Next.js, Mobile Development, and Backend Development. Over 4 years of experience building scalable applications.",
+    },
+    {
+      name: "keywords",
+      content:
+        "TypeScript Development, React Development, Next.js, Mobile Development, Backend Development, Full Stack Skills, Benjamin Mayanja",
+    },
+    {
+      property: "og:title",
+      content: "Skills - Benjamin Mayanja",
+    },
+    {
+      property: "og:description",
+      content:
+        "Discover my technical expertise in TypeScript, React, Next.js, Mobile Development, and Backend Development. Over 4 years of experience building scalable applications.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:image",
+      content: "https://v1b3m.vercel.app/images/og-image.png",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Skills - Benjamin Mayanja",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Discover my technical expertise in TypeScript, React, Next.js, Mobile Development, and Backend Development. Over 4 years of experience building scalable applications.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://v1b3m.vercel.app/images/og-image.png",
+    },
+  ];
+};
 
 export default function Skills() {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(skills[0]);

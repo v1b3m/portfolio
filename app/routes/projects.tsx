@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Seo from "~/components/Seo";
+import type { MetaFunction } from "@remix-run/node";
 
 type Project = {
   title: string;
@@ -152,12 +153,62 @@ const ProjectCard = ({ project }: { project: Project }) => (
   </motion.div>
 );
 
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Projects - Benjamin Mayanja" },
+    {
+      name: "description",
+      content:
+        "Explore my portfolio featuring work with Twenty CRM, TrySavvy, RemoteMore, and other innovative projects built with TypeScript, React, and modern web technologies.",
+    },
+    {
+      name: "keywords",
+      content:
+        "TypeScript Projects, React Projects, Next.js Projects, CRM Development, Web Applications, Benjamin Mayanja Portfolio",
+    },
+    {
+      property: "og:title",
+      content: "Projects - Benjamin Mayanja",
+    },
+    {
+      property: "og:description",
+      content:
+        "Explore my portfolio featuring work with Twenty CRM, TrySavvy, RemoteMore, and other innovative projects built with TypeScript, React, and modern web technologies.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:image",
+      content: "https://v1b3m.vercel.app/images/og-image.png",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Projects - Benjamin Mayanja",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Explore my portfolio featuring work with Twenty CRM, TrySavvy, RemoteMore, and other innovative projects built with TypeScript, React, and modern web technologies.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://v1b3m.vercel.app/images/og-image.png",
+    },
+  ];
+};
+
 export default function Projects() {
   return (
     <>
       <Seo
-        title="Projects - Benjamin Mukisa"
-        description="Explore my portfolio of fullstack projects including CRMs, financial platforms, and mobile applications built with React, Next.js, and modern technologies."
+        title="Projects - Benjamin Mayanja"
+        description="Explore my portfolio featuring work with Twenty CRM, TrySavvy, RemoteMore, and other innovative projects built with TypeScript, React, and modern web technologies."
       />
       <div className="min-h-screen py-24">
         <div className="container mx-auto px-4">
