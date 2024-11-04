@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Seo from "~/components/Seo";
 
 type Project = {
   title: string;
@@ -153,27 +154,33 @@ const ProjectCard = ({ project }: { project: Project }) => (
 
 export default function Projects() {
   return (
-    <div className="min-h-screen py-24">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-12 text-center"
-        >
-          <h1 className="mb-4 text-4xl font-bold">
-            My <span className="text-blue-500">Projects</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Here are some of the projects I've worked on
-          </p>
-        </motion.div>
+    <>
+      <Seo
+        title="Projects - Benjamin Mukisa"
+        description="Explore my portfolio of fullstack projects including CRMs, financial platforms, and mobile applications built with React, Next.js, and modern technologies."
+      />
+      <div className="min-h-screen py-24">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-12 text-center"
+          >
+            <h1 className="mb-4 text-4xl font-bold">
+              My <span className="text-blue-500">Projects</span>
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Here are some of the projects I've worked on
+            </p>
+          </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -14,6 +14,7 @@ import { ContactProvider, useContact } from "~/context/ContactContext";
 import ContactInfo from "~/components/ContactInfo";
 import { AnimatePresence } from "framer-motion";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
+import Seo from "~/components/Seo";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -71,6 +72,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <Seo />
         <Links />
       </head>
       <body className="bg-white text-gray-900 dark:bg-gray-900 dark:text-white md:cursor-none">
