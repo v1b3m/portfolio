@@ -11,40 +11,78 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Project One",
+    title: "Twenty",
     description:
-      "A full-stack application built with React, Node.js, and MongoDB. Features real-time updates and responsive design.",
-    tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    image: "https://placehold.co/600x400",
-    link: "https://project-one.com",
-    github: "https://github.com/yourusername/project-one",
+      "The #1 Open-Source CRM\nModern, powerful, affordable platform to manage your customer relationships",
+    tags: ["GraphQL", "React", "NestJS", "Recoil"],
+    image: "/images/www.twenty.com_.jpg",
+    link: "https://twenty.com/",
+    github: "https://github.com/twentyhq/twenty",
   },
   {
-    title: "Project Two",
+    title: "TrySavvy",
     description:
-      "An e-commerce platform with advanced filtering, search, and payment integration.",
-    tags: ["Next.js", "Stripe", "Tailwind CSS", "PostgreSQL"],
-    image: "https://placehold.co/600x400",
-    link: "https://project-two.com",
-    github: "https://github.com/yourusername/project-two",
+      "Savvy is the no-code platform that allows growth and engineers to work faster together to create and test dynamic experiences like; landing pages, custom quizzes and user sign-up flows - all in one place.",
+    tags: ["StimulusJS", "Firebase", "Express"],
+    image: "/images/trysavvy.com_.jpg",
+    link: "https://trysavvy.com/",
   },
   {
-    title: "Project One",
+    title: "RemoteMore",
     description:
-      "A full-stack application built with React, Node.js, and MongoDB. Features real-time updates and responsive design.",
-    tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    image: "https://placehold.co/600x400",
-    link: "https://project-one.com",
-    github: "https://github.com/yourusername/project-one",
+      " Hire from 10,074 remote developers\nOn our marketplace you can find skilled developers easily and in no time.",
+    tags: ["ReactJS", "Firebase", "Material-UI"],
+    image: "/images/remotemore.com_(Smal Laptop).png",
+    link: "https://remotemore.com/",
   },
   {
-    title: "Project Two",
+    title: "Chalktalk",
     description:
-      "An e-commerce platform with advanced filtering, search, and payment integration.",
-    tags: ["Next.js", "Stripe", "Tailwind CSS", "PostgreSQL"],
-    image: "https://placehold.co/600x400",
-    link: "https://project-two.com",
-    github: "https://github.com/yourusername/project-two",
+      'IT\'S TIME TO PUT THE "PERSON" BACK IN PERSONALIZED LEARNING.\nPERSONALIZED LEARNING SOFTWARE FOR ELA & MATH.\nREAL-TIME, REMOTE OR IN-PERSON.',
+    tags: ["ReactJS", "Redux", "CSS"],
+    image: "/images/chalktalk.com_(Smal Laptop).png",
+    link: "https://chalktalk.com/",
+  },
+  {
+    title: "Lusa Web",
+    description:
+      "Quick & easy to use financial services empowering your Sacco or investment club to run efficiently & transparently.\nLusa makes it possible for Sacco members to borrow instant micro-loans backed by their Sacco savings and activity.",
+    tags: ["ReactJS", "Next.js", "Chakra UI"],
+    image: "/images/lusa-web.herokuapp.com_(brittany).png",
+    link: "https://lusa-web.herokuapp.com/",
+  },
+  {
+    link: "https://v1b3m.vercel.app/",
+    image: "/images/localhost_3000_(small laptop).png",
+    title: "Amazing personal site",
+    description:
+      'An amazing personal site where I showcase my "god-level" dev skills.',
+    tags: ["ReactJS", "Next.js", "Chakra UI"],
+  },
+  {
+    link: "https://www.afropay.app/",
+    image: "/images/www.afropay.app_(small laptop).png",
+    title: "AfroPay",
+    description:
+      "We are utilizing the power of QR codes to improve the efficiency of making digital payments",
+    tags: ["ReactJS", "React-Native", "Redux", "NodeJS"],
+  },
+  {
+    link: "https://raid-ai.vercel.app/",
+    image: "/images/raid-ai.vercel.app_(small laptop).png",
+    title: "RaiD",
+    description:
+      "Localization and classification of thoracic abnormalities from chest radiographs with Deep Learning",
+    tags: ["ReactJS", "Next.js", "Chakra UI"],
+  },
+  {
+    link: "https://play.google.com/store/apps/developer?id=v1b3m",
+    image:
+      "/images/play.google.com_store_apps_developer_id=v1b3m(ticketDex).png",
+    title: "Mobile Apps",
+    description:
+      "I&apos;ve played around with ReactNative and apps appeared with me as their author on the Google Play Store all of a sudden 🤯",
+    tags: ["React-Native", "Redux", "Firebase"],
   },
   // Add more projects as needed
 ];
@@ -126,7 +164,7 @@ export default function Projects() {
             My <span className="text-blue-500">Projects</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            Here are some of the projects I&apos;ve worked on
+            Here are some of the projects I've worked on
           </p>
         </motion.div>
 
