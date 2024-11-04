@@ -49,7 +49,7 @@ export default function ContactInfo() {
 
               <div className="space-y-4">
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:vibenjamin6@gmail.com"
                   className="flex items-center gap-4 rounded-lg p-4 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
                   data-explorable="true"
                 >
@@ -57,29 +57,29 @@ export default function ContactInfo() {
                   <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">Email</h3>
                     <p className="truncate text-gray-600 dark:text-gray-300">
-                      your.email@example.com
+                      vibenjamin6@gmail.com
                     </p>
                   </div>
                 </a>
 
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/v1b3m"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-lg p-4 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
                   data-explorable="true"
                 >
-                  <span className="text-2xl flex-shrink-0">👨‍💻</span>
+                  <span className="text-2xl flex-shrink-0">🧑🏿‍💻</span>
                   <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">GitHub</h3>
                     <p className="truncate text-gray-600 dark:text-gray-300">
-                      @yourusername
+                      @v1b3m
                     </p>
                   </div>
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/yourusername"
+                  href="https://linkedin.com/in/benjamin-mayanja"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-lg p-4 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -89,7 +89,7 @@ export default function ContactInfo() {
                   <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">LinkedIn</h3>
                     <p className="truncate text-gray-600 dark:text-gray-300">
-                      linkedin.com/in/yourusername
+                      linkedin.com/in/benjamin-mayanja
                     </p>
                   </div>
                 </a>
