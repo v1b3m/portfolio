@@ -133,7 +133,8 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:image",
-      content: "https://portfolio-v1b3m.vercel.app/images/og-image.svg",
+      content:
+        "https://portfolio-v1b3m.vercel.app/images/21f95680-0305-4fc5-8e0b-4597282bdf1c.png",
     },
     {
       name: "twitter:card",
@@ -150,7 +151,8 @@ export const meta: MetaFunction = () => {
     },
     {
       name: "twitter:image",
-      content: "https://portfolio-v1b3m.vercel.app/images/og-image.svg",
+      content:
+        "https://portfolio-v1b3m.vercel.app/images/21f95680-0305-4fc5-8e0b-4597282bdf1c.png",
     },
   ];
 };
@@ -165,10 +167,6 @@ export default function Skills() {
 
   return (
     <>
-      <Seo
-        title="Skills - Benjamin Mukisa"
-        description="Discover my technical expertise in React, Next.js, Mobile Development, Backend Development, and UI/UX design, backed by years of practical experience."
-      />
       <div className="min-h-screen py-24">
         <div className="container mx-auto px-4">
           <motion.div

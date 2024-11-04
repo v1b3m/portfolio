@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import Seo from "~/components/Seo";
 import type { MetaFunction } from "@remix-run/node";
+import { motion } from "framer-motion";
 
 type Project = {
   title: string;
@@ -181,7 +180,8 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:image",
-      content: "https://v1b3m.vercel.app/images/og-image.png",
+      content:
+        "https://portfolio-v1b3m.vercel.app/images/2f2a32da-634b-41c8-9fd5-9cfcfad1ecd5.png",
     },
     {
       name: "twitter:card",
@@ -198,7 +198,8 @@ export const meta: MetaFunction = () => {
     },
     {
       name: "twitter:image",
-      content: "https://v1b3m.vercel.app/images/og-image.png",
+      content:
+        "https://portfolio-v1b3m.vercel.app/images/2f2a32da-634b-41c8-9fd5-9cfcfad1ecd5.png",
     },
   ];
 };
@@ -206,10 +207,6 @@ export const meta: MetaFunction = () => {
 export default function Projects() {
   return (
     <>
-      <Seo
-        title="Projects - Benjamin Mayanja"
-        description="Explore my portfolio featuring work with Twenty CRM, TrySavvy, RemoteMore, and other innovative projects built with TypeScript, React, and modern web technologies."
-      />
       <div className="min-h-screen py-24">
         <div className="container mx-auto px-4">
           <motion.div
